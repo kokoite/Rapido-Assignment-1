@@ -10,7 +10,8 @@ import CoreLocation
 
 struct Mock {
 
-
+    static var driverLocationPoolTime: Double = 1
+    static var estimatedPathTime: Double = 2
     static var estimatedTimeInSec: Int = 30
     static var driverAnimationTime: Int = 2
     static var startLocationCoordinate: CLLocationCoordinate2D = .init(latitude: +26.89080147, longitude: +75.72166256)

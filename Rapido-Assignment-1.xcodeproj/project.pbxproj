@@ -16,9 +16,10 @@
 		A60B72412C91D4A500C924FC /* Rapido_Assignment_1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B72402C91D4A500C924FC /* Rapido_Assignment_1Tests.swift */; };
 		A60B724B2C91D4A500C924FC /* Rapido_Assignment_1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B724A2C91D4A500C924FC /* Rapido_Assignment_1UITests.swift */; };
 		A60B724D2C91D4A500C924FC /* Rapido_Assignment_1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B724C2C91D4A500C924FC /* Rapido_Assignment_1UITestsLaunchTests.swift */; };
-		A60B725A2C91E57300C924FC /* UIView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B72592C91E57300C924FC /* UIView+Utility.swift */; };
-		A60B725C2C91E9AD00C924FC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B725B2C91E9AD00C924FC /* LocationManager.swift */; };
-		A65992A42C92F21F0079F275 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65992A32C92F21F0079F275 /* MockData.swift */; };
+		A60B725A2C91E57300C924FC /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B72592C91E57300C924FC /* UIView+Extensions.swift */; };
+		A6F038532C935FD4005139E6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F038522C935FD4005139E6 /* MockData.swift */; };
+		A6F038552C936262005139E6 /* MKPolyLine+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F038542C936262005139E6 /* MKPolyLine+Extensions.swift */; };
+		A6F038572C936328005139E6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F038562C936328005139E6 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,9 +53,10 @@
 		A60B72462C91D4A500C924FC /* Rapido-Assignment-1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rapido-Assignment-1UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60B724A2C91D4A500C924FC /* Rapido_Assignment_1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rapido_Assignment_1UITests.swift; sourceTree = "<group>"; };
 		A60B724C2C91D4A500C924FC /* Rapido_Assignment_1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rapido_Assignment_1UITestsLaunchTests.swift; sourceTree = "<group>"; };
-		A60B72592C91E57300C924FC /* UIView+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utility.swift"; sourceTree = "<group>"; };
-		A60B725B2C91E9AD00C924FC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		A65992A32C92F21F0079F275 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		A60B72592C91E57300C924FC /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		A6F038522C935FD4005139E6 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		A6F038542C936262005139E6 /* MKPolyLine+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPolyLine+Extensions.swift"; sourceTree = "<group>"; };
+		A6F038562C936328005139E6 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,13 +110,14 @@
 				A60B72292C91D4A300C924FC /* AppDelegate.swift */,
 				A60B722B2C91D4A300C924FC /* SceneDelegate.swift */,
 				A60B722D2C91D4A300C924FC /* ViewController.swift */,
-				A60B725B2C91E9AD00C924FC /* LocationManager.swift */,
-				A60B72592C91E57300C924FC /* UIView+Utility.swift */,
+				A6F038562C936328005139E6 /* ViewModel.swift */,
+				A60B72592C91E57300C924FC /* UIView+Extensions.swift */,
+				A6F038542C936262005139E6 /* MKPolyLine+Extensions.swift */,
+				A6F038522C935FD4005139E6 /* MockData.swift */,
 				A60B722F2C91D4A400C924FC /* Main.storyboard */,
 				A60B72322C91D4A400C924FC /* Assets.xcassets */,
 				A60B72342C91D4A400C924FC /* LaunchScreen.storyboard */,
 				A60B72372C91D4A400C924FC /* Info.plist */,
-				A65992A32C92F21F0079F275 /* MockData.swift */,
 			);
 			path = "Rapido-Assignment-1";
 			sourceTree = "<group>";
@@ -268,11 +271,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A60B722E2C91D4A300C924FC /* ViewController.swift in Sources */,
-				A65992A42C92F21F0079F275 /* MockData.swift in Sources */,
+				A6F038552C936262005139E6 /* MKPolyLine+Extensions.swift in Sources */,
+				A6F038532C935FD4005139E6 /* MockData.swift in Sources */,
 				A60B722A2C91D4A300C924FC /* AppDelegate.swift in Sources */,
-				A60B725C2C91E9AD00C924FC /* LocationManager.swift in Sources */,
 				A60B722C2C91D4A300C924FC /* SceneDelegate.swift in Sources */,
-				A60B725A2C91E57300C924FC /* UIView+Utility.swift in Sources */,
+				A60B725A2C91E57300C924FC /* UIView+Extensions.swift in Sources */,
+				A6F038572C936328005139E6 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

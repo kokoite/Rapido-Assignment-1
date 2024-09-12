@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
 
-    func setTranslatesMask() {
+    func setTranslateMask() {
         translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -34,6 +34,5 @@ extension UIView {
         ].forEach { constraint in
             constraint.isActive = true
         }
-
     }
 }
