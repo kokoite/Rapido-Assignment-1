@@ -1,0 +1,18 @@
+//
+//  MockData.swift
+//  Rapido-Assignment-1
+//
+//  Created by Pranjal Agarwal on 12/09/24.
+//
+
+import Foundation
+import CoreLocation
+
+struct Mock {
+
+
+    static var estimatedTimeInSec: Int = 30
+    static var driverAnimationTime: Int = 2
+    static var startLocationCoordinate: CLLocationCoordinate2D = .init(latitude: +26.89080147, longitude: +75.72166256)
+    static var destinationLocationCoordinate: CLLocationCoordinate2D = .init(latitude: 26.916648864746097, longitude: 75.73639297485352)
+}

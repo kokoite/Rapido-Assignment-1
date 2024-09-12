@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A60B722A2C91D4A300C924FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B72292C91D4A300C924FC /* AppDelegate.swift */; };
+		A60B722C2C91D4A300C924FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B722B2C91D4A300C924FC /* SceneDelegate.swift */; };
+		A60B722E2C91D4A300C924FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B722D2C91D4A300C924FC /* ViewController.swift */; };
+		A60B72312C91D4A400C924FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60B722F2C91D4A400C924FC /* Main.storyboard */; };
+		A60B72332C91D4A400C924FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60B72322C91D4A400C924FC /* Assets.xcassets */; };
+		A60B72362C91D4A400C924FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60B72342C91D4A400C924FC /* LaunchScreen.storyboard */; };
+		A60B72412C91D4A500C924FC /* Rapido_Assignment_1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B72402C91D4A500C924FC /* Rapido_Assignment_1Tests.swift */; };
+		A60B724B2C91D4A500C924FC /* Rapido_Assignment_1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B724A2C91D4A500C924FC /* Rapido_Assignment_1UITests.swift */; };
+		A60B724D2C91D4A500C924FC /* Rapido_Assignment_1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B724C2C91D4A500C924FC /* Rapido_Assignment_1UITestsLaunchTests.swift */; };
+		A60B725A2C91E57300C924FC /* UIView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B72592C91E57300C924FC /* UIView+Utility.swift */; };
+		A60B725C2C91E9AD00C924FC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B725B2C91E9AD00C924FC /* LocationManager.swift */; };
+		A65992A42C92F21F0079F275 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65992A32C92F21F0079F275 /* MockData.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A60B723D2C91D4A500C924FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A60B721E2C91D4A300C924FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A60B72252C91D4A300C924FC;
+			remoteInfo = "Rapido-Assignment-1";
+		};
+		A60B72472C91D4A500C924FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A60B721E2C91D4A300C924FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A60B72252C91D4A300C924FC;
+			remoteInfo = "Rapido-Assignment-1";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A60B72262C91D4A300C924FC /* Rapido-Assignment-1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rapido-Assignment-1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A60B72292C91D4A300C924FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A60B722B2C91D4A300C924FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A60B722D2C91D4A300C924FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A60B72302C91D4A400C924FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A60B72322C91D4A400C924FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A60B72352C91D4A400C924FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A60B72372C91D4A400C924FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A60B723C2C91D4A500C924FC /* Rapido-Assignment-1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rapido-Assignment-1Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A60B72402C91D4A500C924FC /* Rapido_Assignment_1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rapido_Assignment_1Tests.swift; sourceTree = "<group>"; };
+		A60B72462C91D4A500C924FC /* Rapido-Assignment-1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rapido-Assignment-1UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A60B724A2C91D4A500C924FC /* Rapido_Assignment_1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rapido_Assignment_1UITests.swift; sourceTree = "<group>"; };
+		A60B724C2C91D4A500C924FC /* Rapido_Assignment_1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rapido_Assignment_1UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A60B72592C91E57300C924FC /* UIView+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utility.swift"; sourceTree = "<group>"; };
+		A60B725B2C91E9AD00C924FC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		A65992A32C92F21F0079F275 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A60B72232C91D4A300C924FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A60B72392C91D4A500C924FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A60B72432C91D4A500C924FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A60B721D2C91D4A300C924FC = {
+			isa = PBXGroup;
+			children = (
+				A60B72282C91D4A300C924FC /* Rapido-Assignment-1 */,
+				A60B723F2C91D4A500C924FC /* Rapido-Assignment-1Tests */,
+				A60B72492C91D4A500C924FC /* Rapido-Assignment-1UITests */,
+				A60B72272C91D4A300C924FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A60B72272C91D4A300C924FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A60B72262C91D4A300C924FC /* Rapido-Assignment-1.app */,
+				A60B723C2C91D4A500C924FC /* Rapido-Assignment-1Tests.xctest */,
+				A60B72462C91D4A500C924FC /* Rapido-Assignment-1UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A60B72282C91D4A300C924FC /* Rapido-Assignment-1 */ = {
+			isa = PBXGroup;
+			children = (
+				A60B72292C91D4A300C924FC /* AppDelegate.swift */,
+				A60B722B2C91D4A300C924FC /* SceneDelegate.swift */,
+				A60B722D2C91D4A300C924FC /* ViewController.swift */,
+				A60B725B2C91E9AD00C924FC /* LocationManager.swift */,
+				A60B72592C91E57300C924FC /* UIView+Utility.swift */,
+				A60B722F2C91D4A400C924FC /* Main.storyboard */,
+				A60B72322C91D4A400C924FC /* Assets.xcassets */,
+				A60B72342C91D4A400C924FC /* LaunchScreen.storyboard */,
+				A60B72372C91D4A400C924FC /* Info.plist */,
+				A65992A32C92F21F0079F275 /* MockData.swift */,
+			);
+			path = "Rapido-Assignment-1";
+			sourceTree = "<group>";
+		};
+		A60B723F2C91D4A500C924FC /* Rapido-Assignment-1Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A60B72402C91D4A500C924FC /* Rapido_Assignment_1Tests.swift */,
+			);
+			path = "Rapido-Assignment-1Tests";
+			sourceTree = "<group>";
+		};
+		A60B72492C91D4A500C924FC /* Rapido-Assignment-1UITests */ = {
+			isa = PBXGroup;
+			children = (
+				A60B724A2C91D4A500C924FC /* Rapido_Assignment_1UITests.swift */,
+				A60B724C2C91D4A500C924FC /* Rapido_Assignment_1UITestsLaunchTests.swift */,
+			);
+			path = "Rapido-Assignment-1UITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A60B72252C91D4A300C924FC /* Rapido-Assignment-1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A60B72502C91D4A500C924FC /* Build configuration list for PBXNativeTarget "Rapido-Assignment-1" */;
+			buildPhases = (
+				A60B72222C91D4A300C924FC /* Sources */,
+				A60B72232C91D4A300C924FC /* Frameworks */,
+				A60B72242C91D4A300C924FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Rapido-Assignment-1";
+			productName = "Rapido-Assignment-1";
+			productReference = A60B72262C91D4A300C924FC /* Rapido-Assignment-1.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A60B723B2C91D4A500C924FC /* Rapido-Assignment-1Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A60B72532C91D4A500C924FC /* Build configuration list for PBXNativeTarget "Rapido-Assignment-1Tests" */;
+			buildPhases = (
+				A60B72382C91D4A500C924FC /* Sources */,
+				A60B72392C91D4A500C924FC /* Frameworks */,
+				A60B723A2C91D4A500C924FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A60B723E2C91D4A500C924FC /* PBXTargetDependency */,
+			);
+			name = "Rapido-Assignment-1Tests";
+			productName = "Rapido-Assignment-1Tests";
+			productReference = A60B723C2C91D4A500C924FC /* Rapido-Assignment-1Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A60B72452C91D4A500C924FC /* Rapido-Assignment-1UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A60B72562C91D4A500C924FC /* Build configuration list for PBXNativeTarget "Rapido-Assignment-1UITests" */;
+			buildPhases = (
+				A60B72422C91D4A500C924FC /* Sources */,
+				A60B72432C91D4A500C924FC /* Frameworks */,
+				A60B72442C91D4A500C924FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A60B72482C91D4A500C924FC /* PBXTargetDependency */,
+			);
+			name = "Rapido-Assignment-1UITests";
+			productName = "Rapido-Assignment-1UITests";
+			productReference = A60B72462C91D4A500C924FC /* Rapido-Assignment-1UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A60B721E2C91D4A300C924FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					A60B72252C91D4A300C924FC = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					A60B723B2C91D4A500C924FC = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = A60B72252C91D4A300C924FC;
+					};
+					A60B72452C91D4A500C924FC = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = A60B72252C91D4A300C924FC;
+					};
+				};
+			};
+			buildConfigurationList = A60B72212C91D4A300C924FC /* Build configuration list for PBXProject "Rapido-Assignment-1" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A60B721D2C91D4A300C924FC;
+			productRefGroup = A60B72272C91D4A300C924FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A60B72252C91D4A300C924FC /* Rapido-Assignment-1 */,
+				A60B723B2C91D4A500C924FC /* Rapido-Assignment-1Tests */,
+				A60B72452C91D4A500C924FC /* Rapido-Assignment-1UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A60B72242C91D4A300C924FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A60B72362C91D4A400C924FC /* LaunchScreen.storyboard in Resources */,
+				A60B72332C91D4A400C924FC /* Assets.xcassets in Resources */,
+				A60B72312C91D4A400C924FC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A60B723A2C91D4A500C924FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A60B72442C91D4A500C924FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A60B72222C91D4A300C924FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A60B722E2C91D4A300C924FC /* ViewController.swift in Sources */,
+				A65992A42C92F21F0079F275 /* MockData.swift in Sources */,
+				A60B722A2C91D4A300C924FC /* AppDelegate.swift in Sources */,
+				A60B725C2C91E9AD00C924FC /* LocationManager.swift in Sources */,
+				A60B722C2C91D4A300C924FC /* SceneDelegate.swift in Sources */,
+				A60B725A2C91E57300C924FC /* UIView+Utility.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A60B72382C91D4A500C924FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A60B72412C91D4A500C924FC /* Rapido_Assignment_1Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A60B72422C91D4A500C924FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A60B724D2C91D4A500C924FC /* Rapido_Assignment_1UITestsLaunchTests.swift in Sources */,
+				A60B724B2C91D4A500C924FC /* Rapido_Assignment_1UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A60B723E2C91D4A500C924FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A60B72252C91D4A300C924FC /* Rapido-Assignment-1 */;
+			targetProxy = A60B723D2C91D4A500C924FC /* PBXContainerItemProxy */;
+		};
+		A60B72482C91D4A500C924FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A60B72252C91D4A300C924FC /* Rapido-Assignment-1 */;
+			targetProxy = A60B72472C91D4A500C924FC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A60B722F2C91D4A400C924FC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A60B72302C91D4A400C924FC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A60B72342C91D4A400C924FC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A60B72352C91D4A400C924FC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A60B724E2C91D4A500C924FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A60B724F2C91D4A500C924FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A60B72512C91D4A500C924FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8Y63TWT68W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Rapido-Assignment-1/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need location in order to help you track your partner";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "random.Rapido-Assignment-1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A60B72522C91D4A500C924FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8Y63TWT68W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Rapido-Assignment-1/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need location in order to help you track your partner";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "random.Rapido-Assignment-1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A60B72542C91D4A500C924FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8Y63TWT68W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "random.Rapido-Assignment-1Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rapido-Assignment-1.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Rapido-Assignment-1";
+			};
+			name = Debug;
+		};
+		A60B72552C91D4A500C924FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8Y63TWT68W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "random.Rapido-Assignment-1Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rapido-Assignment-1.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Rapido-Assignment-1";
+			};
+			name = Release;
+		};
+		A60B72572C91D4A500C924FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8Y63TWT68W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "random.Rapido-Assignment-1UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Rapido-Assignment-1";
+			};
+			name = Debug;
+		};
+		A60B72582C91D4A500C924FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8Y63TWT68W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "random.Rapido-Assignment-1UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Rapido-Assignment-1";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A60B72212C91D4A300C924FC /* Build configuration list for PBXProject "Rapido-Assignment-1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A60B724E2C91D4A500C924FC /* Debug */,
+				A60B724F2C91D4A500C924FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A60B72502C91D4A500C924FC /* Build configuration list for PBXNativeTarget "Rapido-Assignment-1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A60B72512C91D4A500C924FC /* Debug */,
+				A60B72522C91D4A500C924FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A60B72532C91D4A500C924FC /* Build configuration list for PBXNativeTarget "Rapido-Assignment-1Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A60B72542C91D4A500C924FC /* Debug */,
+				A60B72552C91D4A500C924FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A60B72562C91D4A500C924FC /* Build configuration list for PBXNativeTarget "Rapido-Assignment-1UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A60B72572C91D4A500C924FC /* Debug */,
+				A60B72582C91D4A500C924FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A60B721E2C91D4A300C924FC /* Project object */;
+}
