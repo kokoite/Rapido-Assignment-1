@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     private var mapView: MKMapView!
     private var mapAndButtonContainer: UIStackView!
     private var locationManager: CLLocationManager?
+    private var selectedRoute: MKRoute?
+    private var driverAnnotation: MKPointAnnotation!
 
 
     private var currentStep = 0
@@ -27,13 +29,15 @@ class ViewController: UIViewController {
     private var destinationLocation: CLLocation?
     private var routeOverlay: MKPolyline?
 
+
     private var routeCoordinates: [CLLocationCoordinate2D] = []
     private var currentCoordinateIndex = 0
 
 
 
     @objc private func startButtonClicked() {
-        print("start button clicked")
+        guard let route = selectedRoute else { return }
+        startSimulatingMovement(along: route)
     }
 
     override func viewDidLoad() {
@@ -49,6 +53,7 @@ class ViewController: UIViewController {
         setupButton()
         addStartAnnotation()
         addDestinationAnnotation()
+        addDriverAnnotation()
         getRoute()
     }
 
@@ -118,7 +123,6 @@ class ViewController: UIViewController {
     }
 
     private func addStartAnnotation() {
-        guard let locationManager, let location = locationManager.location else { return }
         let annotation = MKPointAnnotation()
         annotation.coordinate = Mock.startLocationCoordinate
         annotation.title = "Start"
@@ -130,6 +134,14 @@ class ViewController: UIViewController {
         annotation.coordinate = Mock.destinationLocationCoordinate
         annotation.title = "Destination"
         mapView.addAnnotation(annotation)
+    }
+
+    private func addDriverAnnotation() {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = Mock.startLocationCoordinate
+        annotation.title = "Driver"
+        mapView.addAnnotation(annotation)
+        driverAnnotation = annotation
     }
 
     private func getRoute() {
@@ -151,10 +163,114 @@ class ViewController: UIViewController {
             }
 
             guard let route = response.routes.first else { return }
+
             self.mapView.addOverlay(route.polyline)
-            print("Response is \(response)")
+            self.selectedRoute = route
+//            print("Response is \(response)")
         }
     }
+
+    private func startSimulatingMovement(along route: MKRoute) {
+        // Get the route's polyline coordinates
+        let polyline = route.polyline
+        routeCoordinates = polyline.coordinates()
+        currentCoordinateIndex = 0
+
+        // Start moving along the route
+        simulateMovementStep()
+    }
+
+    private func simulateMovementStep() {
+        guard currentCoordinateIndex < routeCoordinates.count - 1 else {
+            timer?.invalidate() // Stop simulation when the route is complete
+            return
+        }
+
+        // Get the next start and end points of the current segment
+        let startCoordinate = routeCoordinates[currentCoordinateIndex]
+        let endCoordinate = routeCoordinates[currentCoordinateIndex + 1]
+
+        // Animate marker from start to end
+        animateMarker(from: startCoordinate, to: endCoordinate, duration: 2.0)
+
+        // Move to the next segment after the animation completes
+        currentCoordinateIndex += 1
+
+        // Continue moving along the route
+        timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
+            self?.simulateMovementStep()
+        }
+    }
+
+    private func animateMarker(from start: CLLocationCoordinate2D, to end: CLLocationCoordinate2D, duration: TimeInterval) {
+
+        let animationSteps = 100 // Number of steps in the animation
+        let stepDuration = duration / Double(animationSteps) // Time between each step
+
+        let latDelta = (end.latitude - start.latitude) / Double(animationSteps)
+        let lonDelta = (end.longitude - start.longitude) / Double(animationSteps)
+
+        var step = 0
+        Timer.scheduledTimer(withTimeInterval: stepDuration, repeats: true) { timer in
+            if step < animationSteps {
+                // Update the annotation's coordinate
+                let newLat = start.latitude + latDelta * Double(step)
+                let newLon = start.longitude + lonDelta * Double(step)
+
+                // Update the driver annotation position
+                self.driverAnnotation.coordinate = CLLocationCoordinate2D(latitude: newLat, longitude: newLon)
+
+                step += 1
+            } else {
+                timer.invalidate()
+            }
+        }
+    }
+
+
+//    private func startSimulatingMovement(along route: MKRoute) {
+//
+//        let steps = route.steps
+//        var stepIndex = 0
+//
+//        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+//            if(stepIndex < steps.count) {
+//
+//                let coordinate = steps[stepIndex].polyline.coordinate
+//                if(stepIndex > 0) {
+//                    self.animateDriverPosition(from: steps[stepIndex-1].polyline.coordinate, to: coordinate, duration: 2)
+//                }
+//                stepIndex+=1
+//
+//            } else {
+//                timer.invalidate()
+//            }
+//        }
+//    }
+//
+//    private func animateDriverPosition(from start: CLLocationCoordinate2D, to end: CLLocationCoordinate2D, duration: TimeInterval) {
+//
+//
+//        let animationSteps = 100 // Number of steps in the animation
+//        let stepDuration = duration / Double(animationSteps) // Time between each step
+//
+//        let latDelta = (end.latitude - start.latitude) / Double(animationSteps)
+//        let lonDelta = (end.longitude - start.longitude) / Double(animationSteps)
+//
+//        var step = 0
+//        Timer.scheduledTimer(withTimeInterval: stepDuration, repeats: true) { timer in
+//            if step < animationSteps {
+//                // Update the annotation's coordinate
+//                let newLat = start.latitude + latDelta * Double(step)
+//                let newLon = start.longitude + lonDelta * Double(step)
+//                self.driverAnnotation.coordinate = CLLocationCoordinate2D(latitude: newLat, longitude: newLon)
+//
+//                step += 1
+//            } else {
+//                timer.invalidate()
+//            }
+//        }
+//    }
 }
 
 
@@ -200,5 +316,14 @@ extension ViewController: CLLocationManagerDelegate {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         requestAndHandleLocationPermission()
+    }
+}
+
+
+extension MKPolyline {
+    func coordinates() -> [CLLocationCoordinate2D] {
+        var coords = [CLLocationCoordinate2D](repeating: kCLLocationCoordinate2DInvalid, count: self.pointCount)
+        self.getCoordinates(&coords, range: NSRange(location: 0, length: self.pointCount))
+        return coords
     }
 }
