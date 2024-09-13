@@ -15,7 +15,6 @@ final class ViewModelTests: XCTestCase {
     var viewModel: ViewModel!
     var mockDelegate: MockMapViewDelegate!
 
-
     override func setUp() {
         super.setUp()
         viewModel = ViewModel()
@@ -24,9 +23,10 @@ final class ViewModelTests: XCTestCase {
     }
 
     override func tearDown() {
+        super.tearDown()
+        viewModel.delegate = nil
         viewModel = nil
         mockDelegate = nil
-        super.tearDown()
     }
 
     func testGetRoute() {
@@ -43,8 +43,6 @@ final class ViewModelTests: XCTestCase {
         XCTAssertNotNil(mockDelegate.lastRouteResponse, "Response should not be nil")
         XCTAssertNotNil(mockDelegate.lastRouteResponse?.polyline, "Polyline should not be nil")
         XCTAssertNil(mockDelegate.lastRouteResponse?.error, "Error should be nil")
-
-
     }
 
     func testGetRouteError() {
@@ -87,7 +85,6 @@ final class ViewModelTests: XCTestCase {
 }
 
 class MockMapViewDelegate: MapViewDelegate {
-
     
     var lastRouteResponse: RouteViewModel?
     var regionUpdateCalled = false

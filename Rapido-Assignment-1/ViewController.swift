@@ -104,6 +104,16 @@ class ViewController: UIViewController {
     }
 
     private func animateDriverPosition(to coordinate: CLLocationCoordinate2D) {
+        /*
+         For animating polyline along with driver position. I believe it will be very
+         complex in simulation. Here is what i think we can do it (I was not able to try it due to some time constraint) for each path we know start and end coordinate
+         if we break the distance between both coordinate into lets say 1000 steps (this is hypothetical).
+        we can get intermediate coordinates (count of intermediate coordinates will be equal to number of steps) with the help of interpolation between start and end coordinate.
+         Instead of animating driver coordinate directly fromr start and end, we will update the coordinates based on intermediate coordinate. Due to very high number of steps, it would seem like driver is moving (it should feel like we are animating)
+         and we will also have current coordinate of the driver. which will help us redrawing polyline with driver position updated
+
+         For real life scenario i think it would be easy to update polyline as the driver is moving because we already have the coordinate where driver is currently at
+         */
         UIView.animate(withDuration: Mock.driverAnimationTime) {
             self.driverAnnotation.coordinate = coordinate
             self.view.layoutIfNeeded()
