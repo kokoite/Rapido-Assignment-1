@@ -64,7 +64,7 @@ class ViewController: UIViewController {
     private func setupViewModel() {
         mapViewModel = ViewModel()
         mapViewModel.delegate = self
-        mapViewModel.getRoute(from: Mock.startLocationCoordinate, to: Mock.startLocationCoordinate)
+        mapViewModel.getRoute(from: Mock.startLocationCoordinate, to: Mock.destinationLocationCoordinate)
     }
 
     private func setupMapView() {
