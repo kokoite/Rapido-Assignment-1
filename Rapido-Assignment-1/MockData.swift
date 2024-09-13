@@ -11,8 +11,6 @@ import CoreLocation
 struct Mock {
 
     static var driverLocationPoolTime: Double = 1
-    static var estimatedPathTime: Double = 2
-    static var estimatedTimeInSec: Int = 30
     static var driverAnimationTime: Double = 2
     static var minimumDistanceForRegion: Double = 300
     static var latitudeDistanceForRegion: Double = 1000

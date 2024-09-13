@@ -18,6 +18,7 @@
 		A60B725A2C91E57300C924FC /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B72592C91E57300C924FC /* UIView+Extensions.swift */; };
 		A6A6B9A62C9427D200071624 /* ModifiedAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6B9A52C9427D200071624 /* ModifiedAnnotation.swift */; };
 		A6A6B9A82C9431EB00071624 /* RouteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6B9A72C9431EB00071624 /* RouteViewModel.swift */; };
+		A6A6B9AA2C94522F00071624 /* MKPointAnnotation+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6B9A92C94522F00071624 /* MKPointAnnotation+Helper.swift */; };
 		A6F038532C935FD4005139E6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F038522C935FD4005139E6 /* MockData.swift */; };
 		A6F038552C936262005139E6 /* MKPolyLine+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F038542C936262005139E6 /* MKPolyLine+Extensions.swift */; };
 		A6F038572C936328005139E6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F038562C936328005139E6 /* ViewModel.swift */; };
@@ -56,6 +57,7 @@
 		A60B72592C91E57300C924FC /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		A6A6B9A52C9427D200071624 /* ModifiedAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifiedAnnotation.swift; sourceTree = "<group>"; };
 		A6A6B9A72C9431EB00071624 /* RouteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModel.swift; sourceTree = "<group>"; };
+		A6A6B9A92C94522F00071624 /* MKPointAnnotation+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation+Helper.swift"; sourceTree = "<group>"; };
 		A6F038522C935FD4005139E6 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		A6F038542C936262005139E6 /* MKPolyLine+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPolyLine+Extensions.swift"; sourceTree = "<group>"; };
 		A6F038562C936328005139E6 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				A60B72342C91D4A400C924FC /* LaunchScreen.storyboard */,
 				A60B72372C91D4A400C924FC /* Info.plist */,
 				A6A6B9A52C9427D200071624 /* ModifiedAnnotation.swift */,
+				A6A6B9A92C94522F00071624 /* MKPointAnnotation+Helper.swift */,
 				A6A6B9A72C9431EB00071624 /* RouteViewModel.swift */,
 			);
 			path = "Rapido-Assignment-1";
@@ -275,6 +278,7 @@
 				A6A6B9A62C9427D200071624 /* ModifiedAnnotation.swift in Sources */,
 				A60B722E2C91D4A300C924FC /* ViewController.swift in Sources */,
 				A6F038552C936262005139E6 /* MKPolyLine+Extensions.swift in Sources */,
+				A6A6B9AA2C94522F00071624 /* MKPointAnnotation+Helper.swift in Sources */,
 				A6A6B9A82C9431EB00071624 /* RouteViewModel.swift in Sources */,
 				A6F038532C935FD4005139E6 /* MockData.swift in Sources */,
 				A60B722A2C91D4A300C924FC /* AppDelegate.swift in Sources */,

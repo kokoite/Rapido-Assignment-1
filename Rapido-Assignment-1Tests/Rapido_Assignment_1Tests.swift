@@ -101,7 +101,7 @@ class MockMapViewDelegate: MapViewDelegate {
         regionUpdateCalled = true
     }
 
-    func startAnimatingCoordinate(coordinate: CLLocationCoordinate2D) {
+    func startAnimatingDriverPostion(coordinate: CLLocationCoordinate2D) {
         animateCoordinateCalled = true
     }
 }

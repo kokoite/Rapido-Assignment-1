@@ -15,6 +15,16 @@ class ViewModel {
     private var currentCoordinateIndex = 1
     private var lastDriverLocationInRegion: CLLocationCoordinate2D? = nil
     weak var delegate: MapViewDelegate?
+    private var shouldUpdateProgress = true
+    private var isSimulating = false
+
+    func viewWillDisappear() {
+        shouldUpdateProgress = false
+    }
+
+    func viewWillAppear() {
+        shouldUpdateProgress = true
+    }
 
     func getRoute(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
         Task {
@@ -31,7 +41,7 @@ class ViewModel {
             request.transportType = .automobile
             let direction = MKDirections(request: request)
                 let response = try await direction.calculate()
-                guard let route = response.routes.first else { return }
+                guard let route = response.routes.first, shouldUpdateProgress else { return }
                 self.selectedRoute = route
                 self.routeCoordinates = route.polyline.coordinates()
                 DispatchQueue.main.async {
@@ -47,14 +57,18 @@ class ViewModel {
     }
 
     func startSimulatingMovement() {
-        guard !routeCoordinates.isEmpty else { return }
+        guard !routeCoordinates.isEmpty && !isSimulating else { return }
         currentCoordinateIndex = 0
+        isSimulating = true
         lastDriverLocationInRegion = routeCoordinates[0]
         simulateMovementStep()
     }
 
     private func simulateMovementStep() {
-        guard currentCoordinateIndex < routeCoordinates.count else { return }
+        guard currentCoordinateIndex < routeCoordinates.count && shouldUpdateProgress else {
+            isSimulating = false
+            return
+        }
         let endCoordinate = routeCoordinates[currentCoordinateIndex]
         guard let lastDriverLocationInRegion else { return }
         let distance = calculateDistanceBetweenCoordinates(from: lastDriverLocationInRegion, to: endCoordinate)
@@ -63,7 +77,7 @@ class ViewModel {
             self.lastDriverLocationInRegion = endCoordinate
             delegate?.didUpdateRegion(region: region)
         }
-        delegate?.startAnimatingCoordinate(coordinate: endCoordinate)
+        delegate?.startAnimatingDriverPostion(coordinate: endCoordinate)
         currentCoordinateIndex += 1
         Timer.scheduledTimer(withTimeInterval: Mock.driverLocationPoolTime, repeats: false) { [weak self] _ in
             self?.simulateMovementStep()

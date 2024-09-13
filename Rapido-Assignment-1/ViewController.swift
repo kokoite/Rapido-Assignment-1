@@ -11,7 +11,7 @@ import CoreLocation
 
 protocol MapViewDelegate: AnyObject {
     func didGetRoute(response: RouteViewModel)
-    func startAnimatingCoordinate(coordinate: CLLocationCoordinate2D)
+    func startAnimatingDriverPostion(coordinate: CLLocationCoordinate2D)
     func didUpdateRegion(region: MKCoordinateRegion)
 }
 
@@ -19,7 +19,6 @@ class ViewController: UIViewController {
 
     private var mapView: MKMapView!
     private var startButton: UIButton!
-
     private var mapViewModel: ViewModel!
     private var driverAnnotation: MKPointAnnotation!
 
@@ -33,6 +32,18 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         let region = MKCoordinateRegion(center: Mock.startLocationCoordinate, latitudinalMeters: Mock.latitudeDistanceForRegion, longitudinalMeters: Mock.longitudeDistanceForRegion)
         self.mapView.setRegion(region, animated: true)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mapViewModel.delegate = self
+        mapViewModel.viewWillAppear()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        mapViewModel.viewWillDisappear()
+        mapViewModel.delegate = nil
     }
 
     @objc private func startButtonClicked() {
@@ -141,6 +152,7 @@ extension ViewController: MKMapViewDelegate {
 
 extension ViewController: MapViewDelegate {
 
+    // MARK :- Used for handling error while fetching route from source and destination
     private func handleError(error: Error?) {
         guard let error else { return }
         let alert = UIAlertController(title: "Something went wrong", message: "\(error.localizedDescription)", preferredStyle: .alert)
@@ -154,9 +166,9 @@ extension ViewController: MapViewDelegate {
         self.present(alert, animated: true, completion: nil)
     }
 
+    // MARK :- Triggered when we got response from viewmodel for finding route
     func didGetRoute(response: RouteViewModel) {
         guard let polyline = response.polyline, response.error == nil else {
-            print("error")
             handleError(error: response.error)
             return
         }
@@ -165,12 +177,14 @@ extension ViewController: MapViewDelegate {
         }
     }
 
-    func startAnimatingCoordinate(coordinate: CLLocationCoordinate2D) {
+    // MARK :- Triggered for updating driver coordinate
+    func startAnimatingDriverPostion(coordinate: CLLocationCoordinate2D) {
         DispatchQueue.main.async { [weak self] in
             self?.animateDriverPosition(to: coordinate)
         }
     }
 
+    // MARK :- Triggered when driver goes out of region with respect to its initial position in a previous region. Used to update the region
     func didUpdateRegion(region: MKCoordinateRegion) {
         DispatchQueue.main.async { [weak self] in
             self?.mapView.setRegion(region, animated: true)
