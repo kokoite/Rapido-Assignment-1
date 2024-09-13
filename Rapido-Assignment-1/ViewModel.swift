@@ -64,6 +64,7 @@ class ViewModel {
         simulateMovementStep()
     }
 
+    // Used for simulating driver based on route coordinates
     private func simulateMovementStep() {
         guard currentCoordinateIndex < routeCoordinates.count && shouldUpdateProgress else {
             isSimulating = false
@@ -84,6 +85,7 @@ class ViewModel {
         }
     }
 
+    // Used for calculating distance between two coordinates
     func calculateDistanceBetweenCoordinates(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D)-> Double  {
         let loc1 = CLLocation(latitude: from.latitude, longitude: from.longitude)
         let loc2 = CLLocation(latitude: to.latitude, longitude: to.longitude)
