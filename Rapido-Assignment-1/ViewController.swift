@@ -10,8 +10,9 @@ import MapKit
 import CoreLocation
 
 protocol MapViewDelegate: AnyObject {
-    func didGetRoute(polyline: MKPolyline)
+    func didGetRoute(response: RouteViewModel)
     func startAnimatingCoordinate(coordinate: CLLocationCoordinate2D)
+    func didUpdateRegion(region: MKCoordinateRegion)
 }
 
 class ViewController: UIViewController {
@@ -22,33 +23,37 @@ class ViewController: UIViewController {
     private var mapViewModel: ViewModel!
     private var driverAnnotation: MKPointAnnotation!
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let region = MKCoordinateRegion(center: Mock.startLocationCoordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-        mapView.setRegion(region, animated: true)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewModel()
         setupUI()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let region = MKCoordinateRegion(center: Mock.startLocationCoordinate, latitudinalMeters: Mock.latitudeDistanceForRegion, longitudinalMeters: Mock.longitudeDistanceForRegion)
+        self.mapView.setRegion(region, animated: true)
+    }
+
+    @objc private func startButtonClicked() {
+        let region = MKCoordinateRegion(center: Mock.startLocationCoordinate, latitudinalMeters: Mock.latitudeDistanceForRegion, longitudinalMeters: Mock.longitudeDistanceForRegion)
+        self.mapView.setRegion(region, animated: true)
+        mapViewModel.startSimulatingMovement()
+    }
+
     private func setupUI() {
         view.backgroundColor = .white
         setupMapView()
         setupButton()
-        addStartAnnotation()
-        addDestinationAnnotation()
-        addDriverAnnotation()
+        let _ = createModifiedAnnotation(type: .source, coordinate: Mock.startLocationCoordinate)
+        let _ = createModifiedAnnotation(type: .destination, coordinate: Mock.destinationLocationCoordinate)
+        driverAnnotation = createModifiedAnnotation(type: .driver, coordinate: Mock.startLocationCoordinate)
     }
-
-
 
     private func setupViewModel() {
         mapViewModel = ViewModel()
         mapViewModel.delegate = self
-        mapViewModel.getRoute(from: Mock.startLocationCoordinate, to: Mock.destinationLocationCoordinate)
+        mapViewModel.getRoute(from: Mock.startLocationCoordinate, to: Mock.startLocationCoordinate)
     }
 
     private func setupMapView() {
@@ -79,35 +84,18 @@ class ViewController: UIViewController {
         button.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 20).isActive = true
     }
 
-    @objc private func startButtonClicked() {
-        mapViewModel.startSimulatingMovement()
-    }
-
-    private func addStartAnnotation() {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = Mock.startLocationCoordinate
-        annotation.title = "Start"
+    private func createModifiedAnnotation(type: AnnotationType, coordinate: CLLocationCoordinate2D) -> MKPointAnnotation {
+        let annotation = ModifiedMKPointAnnotation(type: type)
+        annotation.coordinate = coordinate
+        annotation.title = type.rawValue
         mapView.addAnnotation(annotation)
-    }
-
-    private func addDestinationAnnotation() {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = Mock.destinationLocationCoordinate
-        annotation.title = "Destination"
-        mapView.addAnnotation(annotation)
-    }
-
-    private func addDriverAnnotation() {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = Mock.startLocationCoordinate
-        mapView.addAnnotation(annotation)
-        driverAnnotation = annotation
+        return annotation
     }
 
     private func animateDriverPosition(to coordinate: CLLocationCoordinate2D) {
-        UIView.animate(withDuration: 2.0) {
+        UIView.animate(withDuration: Mock.driverAnimationTime) {
             self.driverAnnotation.coordinate = coordinate
-            self.mapView.layoutIfNeeded()
+            self.view.layoutIfNeeded()
         }
     }
 }
@@ -122,15 +110,70 @@ extension ViewController: MKMapViewDelegate {
         }
         return MKOverlayRenderer()
     }
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+        guard let annotation = annotation as? TypedAnnotation, let type = annotation.type else { return nil }
+        var annotationView: MKAnnotationView? = nil
+
+        switch type {
+        case .driver:
+            let view = MKAnnotationView()
+            let image = UIImage(systemName: "car")
+            view.image = image
+            annotationView = view
+
+        case .source:
+            let view = MKAnnotationView()
+            let image = UIImage(systemName: "s.circle")
+            view.image = image
+            annotationView = view
+
+        case .destination:
+            let view = MKAnnotationView()
+            let image = UIImage(systemName: "d.circle")
+            view.image = image
+            annotationView = view
+        }
+        return annotationView
+    }
 }
 
 extension ViewController: MapViewDelegate {
-    
-    func didGetRoute(polyline: MKPolyline) {
-        mapView.addOverlay(polyline)
+
+    private func handleError(error: Error?) {
+        guard let error else { return }
+        let alert = UIAlertController(title: "Something went wrong", message: "\(error.localizedDescription)", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
+            self?.mapViewModel.getRoute(from: Mock.startLocationCoordinate, to: Mock.destinationLocationCoordinate)
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func didGetRoute(response: RouteViewModel) {
+        guard let polyline = response.polyline, response.error == nil else {
+            print("error")
+            handleError(error: response.error)
+            return
+        }
+        DispatchQueue.main.async { [weak self] in
+            self?.mapView.addOverlay(polyline)
+        }
     }
 
     func startAnimatingCoordinate(coordinate: CLLocationCoordinate2D) {
-        animateDriverPosition(to: coordinate)
+        DispatchQueue.main.async { [weak self] in
+            self?.animateDriverPosition(to: coordinate)
+        }
+    }
+
+    func didUpdateRegion(region: MKCoordinateRegion) {
+        DispatchQueue.main.async { [weak self] in
+            self?.mapView.setRegion(region, animated: true)
+        }
     }
 }

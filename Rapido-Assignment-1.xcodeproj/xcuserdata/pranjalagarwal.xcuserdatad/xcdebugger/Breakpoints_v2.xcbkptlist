@@ -3,4 +3,102 @@
    uuid = "4EE04ECA-CE2C-429D-892F-EB38334FCBC6"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CDA667FB-2285-468D-ADB3-5FFF0FB2024D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rapido-Assignment-1/ViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "getRoute(from:to:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CDA667FB-2285-468D-ADB3-5FFF0FB2024D - 45ec8ddb1cbea84"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Rapido_Assignment_1.ViewModel.getRoute(from: __C.CLLocationCoordinate2D, to: __C.CLLocationCoordinate2D) -&gt; ()"
+                  moduleName = "Rapido-Assignment-1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pranjalagarwal/Desktop/Rapido/Rapido-Assignment-1/Rapido-Assignment-1/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "588">
+               </Location>
+               <Location
+                  uuid = "CDA667FB-2285-468D-ADB3-5FFF0FB2024D - 3d904f2990c3ea90"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor @Sendable () -&gt; () in closure #1 @Sendable () async -&gt; () in Rapido_Assignment_1.ViewModel.getRoute(from: __C.CLLocationCoordinate2D, to: __C.CLLocationCoordinate2D) -&gt; ()"
+                  moduleName = "Rapido-Assignment-1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pranjalagarwal/Desktop/Rapido/Rapido-Assignment-1/Rapido-Assignment-1/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "79998C73-FDCF-4A18-A522-B06E46A53906"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rapido-Assignment-1/ViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "getRoute(from:to:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "79998C73-FDCF-4A18-A522-B06E46A53906 - 4f97e28ffca74de0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Rapido_Assignment_1.ViewModel.getRoute(from: __C.CLLocationCoordinate2D, to: __C.CLLocationCoordinate2D) -&gt; ()"
+                  moduleName = "Rapido-Assignment-1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pranjalagarwal/Desktop/Rapido/Rapido-Assignment-1/Rapido-Assignment-1/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "796">
+               </Location>
+               <Location
+                  uuid = "79998C73-FDCF-4A18-A522-B06E46A53906 - ad23b3ae8af05574"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Swift.MainActor @Sendable () -&gt; () in closure #1 @Sendable () async -&gt; () in Rapido_Assignment_1.ViewModel.getRoute(from: __C.CLLocationCoordinate2D, to: __C.CLLocationCoordinate2D) -&gt; ()"
+                  moduleName = "Rapido-Assignment-1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pranjalagarwal/Desktop/Rapido/Rapido-Assignment-1/Rapido-Assignment-1/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

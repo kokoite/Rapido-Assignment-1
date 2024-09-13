@@ -6,51 +6,76 @@
 //
 
 import Foundation
-
 import MapKit
 
 class ViewModel {
     // Properties
     private var selectedRoute: MKRoute?
-    private var routeCoordinates: [CLLocationCoordinate2D] = []
-    private var currentCoordinateIndex = 0
+    var routeCoordinates: [CLLocationCoordinate2D] = []
+    private var currentCoordinateIndex = 1
+    private var lastDriverLocationInRegion: CLLocationCoordinate2D? = nil
     weak var delegate: MapViewDelegate?
 
     func getRoute(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
-        let sourcePlacemark = MKPlacemark(coordinate: source)
-        let destinationPlacemark = MKPlacemark(coordinate: destination)
-        let request = MKDirections.Request()
-        request.source = MKMapItem(placemark: sourcePlacemark)
-        request.destination = MKMapItem(placemark: destinationPlacemark)
-        request.transportType = .automobile
-
-        let direction = MKDirections(request: request)
-        direction.calculate { response, error in
-            guard let response = response, error == nil else {
-                print("Error is \(error?.localizedDescription ?? "Unknown error")")
-                return
+        Task {
+            do {
+                let distance = calculateDistanceBetweenCoordinates(from: source, to: destination)
+                if(distance <= 10) {
+                    throw NSError(domain: "Source and destination are same", code: 10)
+                }
+                let sourcePlacemark = MKPlacemark(coordinate: source)
+            let destinationPlacemark = MKPlacemark(coordinate: destination)
+            let request = MKDirections.Request()
+            request.source = MKMapItem(placemark: sourcePlacemark)
+            request.destination = MKMapItem(placemark: destinationPlacemark)
+            request.transportType = .automobile
+            let direction = MKDirections(request: request)
+                let response = try await direction.calculate()
+                guard let route = response.routes.first else { return }
+                self.selectedRoute = route
+                self.routeCoordinates = route.polyline.coordinates()
+                DispatchQueue.main.async {
+                    self.delegate?.didGetRoute(response: .init(error: nil, polyline: route.polyline))
+                }
+            } catch (let error) {
+                print("Error: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.delegate?.didGetRoute(response: .init(error: error, polyline: nil))
+                }
             }
-            guard let route = response.routes.first else { return }
-            self.selectedRoute = route
-            self.routeCoordinates = route.polyline.coordinates()
-            self.delegate?.didGetRoute(polyline: route.polyline)
         }
     }
 
     func startSimulatingMovement() {
         guard !routeCoordinates.isEmpty else { return }
+        currentCoordinateIndex = 0
+        lastDriverLocationInRegion = routeCoordinates[0]
         simulateMovementStep()
     }
 
     private func simulateMovementStep() {
         guard currentCoordinateIndex < routeCoordinates.count else { return }
         let endCoordinate = routeCoordinates[currentCoordinateIndex]
-        self.delegate?.startAnimatingCoordinate(coordinate: endCoordinate)
+        guard let lastDriverLocationInRegion else { return }
+        let distance = calculateDistanceBetweenCoordinates(from: lastDriverLocationInRegion, to: endCoordinate)
+        if(distance > Mock.minimumDistanceForRegion) {
+            let region = MKCoordinateRegion(center: endCoordinate, latitudinalMeters: Mock.latitudeDistanceForRegion, longitudinalMeters: Mock.longitudeDistanceForRegion)
+            self.lastDriverLocationInRegion = endCoordinate
+            delegate?.didUpdateRegion(region: region)
+        }
+        delegate?.startAnimatingCoordinate(coordinate: endCoordinate)
         currentCoordinateIndex += 1
-
         Timer.scheduledTimer(withTimeInterval: Mock.driverLocationPoolTime, repeats: false) { [weak self] _ in
             self?.simulateMovementStep()
         }
     }
+
+    func calculateDistanceBetweenCoordinates(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D)-> Double  {
+        let loc1 = CLLocation(latitude: from.latitude, longitude: from.longitude)
+        let loc2 = CLLocation(latitude: to.latitude, longitude: to.longitude)
+        let distance = loc1.distance(from: loc2)
+        return distance
+    }
 }
+
 
